@@ -19,6 +19,10 @@ fi
 
 
 function rm2trash() {
+  if [[ "$1" == -* ]]; then
+    return
+  fi
+
   fp="$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
 
   if [ ! -e $fp ]; then
