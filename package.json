@@ -1,0 +1,25 @@
+{
+  "name": "rm-trash",
+  "version": "1.0.0",
+  "description": "rm-trash is utility for safely remove files in Termail.app of macOS.",
+  "bin": "bin/rm-trash",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hotoo/rm-trash.git"
+  },
+  "keywords": [
+    "rm",
+    "remove",
+    "termail.app",
+    "macOS"
+  ],
+  "author": "闲耘 <hotoo.cn@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hotoo/rm-trash/issues"
+  },
+  "homepage": "https://github.com/hotoo/rm-trash#readme"
+}

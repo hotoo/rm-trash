@@ -1,0 +1,32 @@
+#!/bin/bash
+
+function usage () {
+  echo "Usage: rmtrash [directories files]"
+  echo
+  echo "Options:"
+  echo "    -h, --help          show help infomation."
+  echo
+  exit 0
+}
+
+if [ "$*" = "-h" ]; then
+  usage
+elif [ "$*" = "--help" ]; then
+  usage
+elif [ "$*" = "" ]; then
+  usage
+else
+  fp="$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
+fi
+
+if [ ! -e $fp ]; then
+  echo "Not Found file $fp"
+  exit 1
+fi
+
+
+osascript << EOF
+tell application "Finder"
+    posix path of ((delete posix file "${fp}") as unicode text)
+end tell
+EOF
