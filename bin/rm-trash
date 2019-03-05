@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function usage () {
+function usage() {
   echo "Usage: rmtrash [directories files]"
   echo
   echo "Options:"
@@ -15,18 +15,24 @@ elif [ "$*" = "--help" ]; then
   usage
 elif [ "$*" = "" ]; then
   usage
-else
+fi
+
+
+function rm2trash() {
   fp="$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
-fi
 
-if [ ! -e $fp ]; then
-  echo "Not Found file $fp"
-  exit 1
-fi
-
-
-osascript << EOF
-tell application "Finder"
+  if [ ! -e $fp ]; then
+    echo "Not Found file $fp"
+    exit 1
+  fi
+  osascript << EOF
+  tell application "Finder"
     posix path of ((delete posix file "${fp}") as unicode text)
-end tell
+  end tell
 EOF
+}
+
+for arg in $@
+do
+  rm2trash $arg
+done
