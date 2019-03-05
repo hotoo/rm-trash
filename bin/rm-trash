@@ -22,8 +22,8 @@ function rm2trash() {
   fp="$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
 
   if [ ! -e $fp ]; then
-    echo "Not Found file $fp"
-    exit 1
+    echo -e "\033[31mNot Found file\033[0m $fp"
+    return
   fi
   osascript << EOF
   tell application "Finder"
