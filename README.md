@@ -1,6 +1,6 @@
 # README
 
-**rm-trash** is a utility for safely remove (`rm`) files on macOS Terminal.app
+**rm-trash** is a utility for safely remove (`rm`) files in Terminal.app of macOS.
 
 ![rm-trash](https://gw.alipayobjects.com/mdn/wealth_prod/afts/img/A*qYewRpNt2M8AAAAAAAAAAABjARQnAQ)
 
