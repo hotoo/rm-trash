@@ -30,7 +30,7 @@ p.s. The origin `rm` commend is `/bin/rm`.
 
 ## Configuration
 
-add `~/.rm-trash-ignore` to redirect remove files.
+add `~/.rm-trash-ignore` to direct remove files.
 
 Example:
 
