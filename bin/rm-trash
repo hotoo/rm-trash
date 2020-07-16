@@ -29,6 +29,21 @@ function rm2trash() {
     echo -e "\033[31mNot Found file\033[0m $fp"
     return
   fi
+
+  ignore_file=~/.rm-trash-ignore
+  if [ -f $ignore_file ]; then
+    while IFS= read -r CHECK
+    do
+      if [ "$CHECK" != "" ]; then
+        if [[ $fp =~ "$CHECK"$ ]]; then
+          "/bin/rm" "-rf" $fp
+          echo "/bin/rm" $fp
+          return
+        fi
+      fi
+    done < $ignore_file
+  fi
+
   osascript << EOF
   tell application "Finder"
     posix path of ((delete posix file "${fp}") as unicode text)

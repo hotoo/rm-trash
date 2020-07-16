@@ -27,3 +27,13 @@ $ alias rm="rm-trash"
 ```
 
 p.s. The origin `rm` commend is `/bin/rm`.
+
+## Configuration
+
+add `~/.rm-trash-ignore` to redirect remove files.
+
+Example:
+
+```txt
+/node_modules
+```
