@@ -1,6 +1,6 @@
 {
   "name": "rm-trash",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "rm-trash is utility for safely remove files in Termail.app of macOS.",
   "bin": "bin/rm-trash",
   "scripts": {

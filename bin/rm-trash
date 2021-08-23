@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage() {
-  echo "Usage: rmtrash [directories files]"
+  echo "Usage: rm-trash [directories files]"
   echo
   echo "Options:"
   echo "    -h, --help          show help infomation."
