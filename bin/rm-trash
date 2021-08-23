@@ -25,7 +25,7 @@ function rm2trash() {
 
   fp="$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
 
-  if [ ! -e $fp ]; then
+  if [ ! -e "$fp" ]; then
     echo -e "\033[31mNot Found file\033[0m $fp"
     return
   fi
@@ -51,7 +51,7 @@ function rm2trash() {
 EOF
 }
 
-for arg in $@
+for arg in "$@"
 do
-  rm2trash $arg
+  rm2trash "$arg"
 done
