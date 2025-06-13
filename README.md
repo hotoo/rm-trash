@@ -14,6 +14,21 @@
 
 ## INSTALL
 
+By [Homebrew](https://brew.sh/):
+
+```bash
+$ brew tap hotoo/tap
+$ brew install rm-trash
+```
+
+by [pnpm](https://pnpm.io/):
+
+```bash
+$ pnpm i rm-trash -g
+```
+
+by [npm](https://www.npmjs.com/):
+
 ```bash
 $ npm i rm-trash -g
 ```
