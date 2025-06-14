@@ -1,10 +1,10 @@
 #!/bin/bash
 
 function usage() {
-  echo "Usage: rm-trash [directories files]"
+  echo "Usage: rm-trash [directories|files]"
   echo
   echo "Options:"
-  echo "    -h, --help          show help infomation."
+  echo "    -h, --help          show help information."
   echo
   exit 0
 }
@@ -20,14 +20,14 @@ fi
 
 function rm2trash() {
   if [[ "$1" == -* ]]; then
-    return
+    return 0
   fi
 
   fp="$(cd "$(dirname "$1")"; pwd -P)/$(basename "$1")"
 
   if [ ! -e "$fp" ]; then
     echo -e "\033[31mNot Found file\033[0m $fp"
-    return
+    return 1
   fi
 
   ignore_file=~/.rm-trash-ignore
@@ -38,7 +38,7 @@ function rm2trash() {
         if [[ $fp =~ "$CHECK"$ ]]; then
           "/bin/rm" "-rf" $fp
           echo "/bin/rm" $fp
-          return
+          return 0
         fi
       fi
     done < $ignore_file
