@@ -9,12 +9,22 @@ function usage() {
   exit 0
 }
 
+function version() {
+  echo "rm-trash 1.2.3"
+  echo "Copyright (C) 2025 @hotoo"
+  exit 0
+}
+
 if [ "$*" = "-h" ]; then
   usage
 elif [ "$*" = "--help" ]; then
   usage
 elif [ "$*" = "" ]; then
   usage
+elif [ "$*" = "-v" ]; then
+  version
+elif [ "$*" = "--version" ]; then
+  version
 fi
 
 

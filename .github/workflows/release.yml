@@ -1,0 +1,36 @@
+name: Build and Release with SHA256
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build_and_hash:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Create tar.gz package
+      run: |
+        # 假设你发布的是整个 repo 根目录压缩包
+        tar czf rm-trash-${{ github.ref_name }}.tar.gz .
+
+    - name: Compute SHA256 hash
+      run: |
+        sha256sum rm-trash-${{ github.ref_name }}.tar.gz > rm-trash-${{ github.ref_name }}.tar.gz.sha256
+
+    - name: Upload Release Asset - tar.gz
+      uses: softprops/action-gh-release@v1
+      with:
+        files: rm-trash-${{ github.ref_name }}.tar.gz
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload Release Asset - sha256
+      uses: softprops/action-gh-release@v1
+      with:
+        files: rm-trash-${{ github.ref_name }}.tar.gz.sha256
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
