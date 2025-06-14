@@ -15,7 +15,7 @@ jobs:
     - name: Create tar.gz package
       run: |
         # 假设你发布的是整个 repo 根目录压缩包
-        tar czf rm-trash-${{ github.ref_name }}.tar.gz .
+        tar czf rm-trash-${{ github.ref_name }}.tar.gz bin package.json
 
     - name: Compute SHA256 hash
       run: |
